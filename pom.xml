@@ -1,52 +1,69 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.todomap.tools</groupId>
-  <artifactId>maven-jettygzip-plugin</artifactId>
-  <packaging>maven-plugin</packaging>
-  <name>Jetty Gzip Plugin</name>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.7</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>commons-io</groupId>
-    	<artifactId>commons-io</artifactId>
-    	<version>1.4</version>
-    </dependency>
-  </dependencies>
-  <description>Compresses the static web resource files with gzip.</description>
-  <url>http://code.google.com/p/todomap/wiki/JettyGzipPlugin</url>
-  <inceptionYear>2009</inceptionYear>
-  <issueManagement>
-  	<system>Google code</system>
-  	<url>http://code.google.com/p/todomap/issues/list</url>
-  </issueManagement>
-  <scm>
-  	<connection>scm:svn:http://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</connection>
-  	<developerConnection>scm:svn:https://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</developerConnection>
-  	<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/trunk</url>
-  </scm>
-  <build>
-  	<plugins>
-  		<plugin>
-  			<groupId>org.apache.maven.plugins</groupId>
-  			<artifactId>maven-compiler-plugin</artifactId>
-  			<version>2.0.2</version>
-  			<configuration>
-  				<source>1.5</source>
-  				<target>1.5</target>
-  			</configuration>
-  		</plugin>
-  	</plugins>
-  </build>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.todomap.tools</groupId>
+	<artifactId>maven-jettygzip-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+	<name>Jetty Gzip Plugin</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+	</dependencies>
+	<description>Compresses the static web resource files with gzip.</description>
+	<url>http://code.google.com/p/todomap/wiki/JettyGzipPlugin</url>
+	<inceptionYear>2009</inceptionYear>
+	<issueManagement>
+		<system>Google code</system>
+		<url>http://code.google.com/p/todomap/issues/list</url>
+	</issueManagement>
+	<scm>
+		<connection>scm:svn:http://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</connection>
+		<developerConnection>scm:svn:https://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</developerConnection>
+		<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/trunk</url>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>todomap.org</id>
+			<name>todomap.org maven repository - releases</name>
+			<url>scp://todomap.org:/var/www/mavenrepo/</url>
+		</repository>
+		<snapshotRepository>
+			<id>todomap.org</id>
+			<name>todomap.org maven repository - releases</name>
+			<url>scp://todomap.org:/var/www/mavenrepo/</url>
+		</snapshotRepository>
+		<site>
+			<id>todomap.org</id>
+			<name>todomap.org maven sites place</name>
+			<url>scp://todomap.org:/var/www/mavensites/geocoder/</url>
+		</site>
+	</distributionManagement>
 </project>
