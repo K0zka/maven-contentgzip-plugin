@@ -36,6 +36,13 @@
 		<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/trunk</url>
 	</scm>
 	<build>
+                <extensions>
+                        <extension>
+                                <groupId>org.apache.maven.wagon</groupId>
+                                <artifactId>wagon-ssh</artifactId>
+                                <version>2.2</version>
+                        </extension>
+                </extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -48,21 +55,21 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>todomap.org</id>
-			<name>todomap.org maven repository - releases</name>
-			<url>scp://todomap.org:/var/www/mavenrepo/</url>
-		</repository>
-		<snapshotRepository>
-			<id>todomap.org</id>
-			<name>todomap.org maven repository - releases</name>
-			<url>scp://todomap.org:/var/www/mavenrepo/</url>
-		</snapshotRepository>
-		<site>
-			<id>todomap.org</id>
-			<name>todomap.org maven sites place</name>
-			<url>scp://todomap.org:/var/www/mavensites/geocoder/</url>
-		</site>
-	</distributionManagement>
+        <distributionManagement>
+                <repository>
+                        <id>dictat.org</id>
+                        <name>dictat.org maven repository - releases</name>
+                        <url>scp://dictat.org:/var/www/html/maven/releases</url>
+                </repository>
+                <snapshotRepository>
+                        <id>dictat.org</id>
+                        <name>dictat.org maven repository - snapshots</name>
+                        <url>scp://dictat.org:/var/www/html/maven/snapshots</url>
+                </snapshotRepository>
+                <site>
+                        <id>dictat.org</id>
+                        <name>dictat.org maven sites place</name>
+                        <url>scp://dictat.org:/var/www/html/maven/sites/${artifactId}</url>
+                </site>
+        </distributionManagement>
 </project>
