@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPOutputStream;
 
+import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.AbstractMojo;
@@ -92,10 +94,12 @@ public class JettyGzipMojo extends AbstractMojo {
 	public void execute() throws MojoExecutionException {
 		getLog().info("Compressing static resources with gzip...");
 		try {
-			FileUtils.copyDirectory(webappDirectory, outputDirectory, new DotNotFilter());
+			if(!ObjectUtils.equals(webappDirectory, outputDirectory)) {
+				FileUtils.copyDirectory(webappDirectory, outputDirectory, new DotNotFilter());
+			}
 			seekAndGzip(outputDirectory);
 		} catch (IOException e) {
-			throw new MojoExecutionException("IO exception when gzipping files");
+			throw new MojoExecutionException("IO exception when gzipping files", e);
 		}
 	}
 
