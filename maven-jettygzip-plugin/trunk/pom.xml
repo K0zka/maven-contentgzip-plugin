@@ -1,10 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.todomap.tools</groupId>
+	<groupId>com.googlecode.todomap</groupId>
 	<artifactId>maven-jettygzip-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<name>Jetty Gzip Plugin</name>
 	<version>0.0.4-SNAPSHOT</version>
+	<licenses>
+		<license>
+			<name>ASL-2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+		</license>
+	</licenses>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
@@ -41,13 +53,13 @@
 		<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/trunk</url>
 	</scm>
 	<build>
-                <extensions>
-                        <extension>
-                                <groupId>org.apache.maven.wagon</groupId>
-                                <artifactId>wagon-ssh</artifactId>
-                                <version>2.2</version>
-                        </extension>
-                </extensions>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -60,21 +72,4 @@
 			</plugin>
 		</plugins>
 	</build>
-        <distributionManagement>
-                <repository>
-                        <id>dictat.org</id>
-                        <name>dictat.org maven repository - releases</name>
-                        <url>scp://dictat.org:/var/www/html/maven/releases</url>
-                </repository>
-                <snapshotRepository>
-                        <id>dictat.org</id>
-                        <name>dictat.org maven repository - snapshots</name>
-                        <url>scp://dictat.org:/var/www/html/maven/snapshots</url>
-                </snapshotRepository>
-                <site>
-                        <id>dictat.org</id>
-                        <name>dictat.org maven sites place</name>
-                        <url>scp://dictat.org:/var/www/html/maven/sites/${artifactId}</url>
-                </site>
-        </distributionManagement>
 </project>
