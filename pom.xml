@@ -4,7 +4,7 @@
 	<artifactId>maven-jettygzip-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<name>Jetty Gzip Plugin</name>
-	<version>0.0.5</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<licenses>
 		<license>
 			<name>ASL-2.0</name>
@@ -47,9 +47,9 @@
 		<url>http://code.google.com/p/todomap/issues/list</url>
 	</issueManagement>
 	<scm>
-		<connection>scm:svn:http://todomap.googlecode.com/svn/maven-jettygzip-plugin/tags/maven-jettygzip-plugin-0.0.5</connection>
-		<developerConnection>scm:svn:https://todomap.googlecode.com/svn/maven-jettygzip-plugin/tags/maven-jettygzip-plugin-0.0.5</developerConnection>
-		<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/tags/maven-jettygzip-plugin-0.0.5</url>
+		<connection>scm:svn:http://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</connection>
+		<developerConnection>scm:svn:https://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</developerConnection>
+		<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/trunk</url>
 	</scm>
 	<build>
 		<extensions>
