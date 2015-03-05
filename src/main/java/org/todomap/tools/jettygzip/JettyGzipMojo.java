@@ -26,10 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPOutputStream;
 
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 
@@ -87,7 +86,7 @@ public class JettyGzipMojo extends AbstractMojo {
 	 */
 	private File outputDirectory;
 	/**
-	 * 
+	 * @parameter
 	 */
 	private List<String> extensions = getDefaultExtensions();
 
