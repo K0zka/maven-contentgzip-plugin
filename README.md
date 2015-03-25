@@ -10,7 +10,7 @@ A static content compressor for maven web applications.
                 <plugin>
                         <groupId>com.github.K0zka</groupId>
                         <artifactId>maven-contentgzip-plugin</artifactId>
-                        <version>0.0.1</version>
+                        <version>0.0.6</version>
                         <executions>
                                 <execution>
                                         <phase>prepare-package</phase>
