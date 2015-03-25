@@ -48,7 +48,7 @@
 	</issueManagement>
 	<scm>
 		<connection>scm:git:https://github.com/K0zka/maven-contentgzip-plugin/issues</connection>
-		<developerConnection>scm:https://github.com/K0zka/maven-contentgzip-plugin/issues</developerConnection>
+		<developerConnection>scm:git:https://github.com/K0zka/maven-contentgzip-plugin/issues</developerConnection>
 		<url>https://github.com/K0zka/maven-contentgzip-plugin/issues</url>
 	</scm>
 	<build>
