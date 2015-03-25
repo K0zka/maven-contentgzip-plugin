@@ -19,7 +19,7 @@ Some of [webjars](http://webjars.org/) also have this enabled and your webjar-pa
                 <plugin>
                         <groupId>com.github.K0zka</groupId>
                         <artifactId>maven-contentgzip-plugin</artifactId>
-                        <version>0.0.6</version>
+                        <version>0.0.7</version>
                         <executions>
                                 <execution>
                                         <phase>prepare-package</phase>
@@ -31,3 +31,12 @@ Some of [webjars](http://webjars.org/) also have this enabled and your webjar-pa
 </build>
 ```
 
+The default configuration compresses the following file types:
+ - css
+ - txt
+ - htm,html
+ - js
+ - xml,xls
+ - ico
+ - pdf
+ - doc
