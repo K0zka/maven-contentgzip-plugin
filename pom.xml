@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.googlecode.todomap</groupId>
-	<artifactId>maven-jettygzip-plugin</artifactId>
+	<groupId>com.github.K0zka</groupId>
+	<artifactId>maven-contentgzip-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<name>Jetty Gzip Plugin</name>
+	<name>Content Gzip Plugin</name>
 	<version>0.0.6-SNAPSHOT</version>
 	<licenses>
 		<license>
@@ -40,16 +40,16 @@
 		</dependency>
 	</dependencies>
 	<description>Compresses the static web resource files with gzip.</description>
-	<url>http://code.google.com/p/todomap/wiki/JettyGzipPlugin</url>
+	<url>https://github.com/K0zka/maven-contentgzip-plugin</url>
 	<inceptionYear>2009</inceptionYear>
 	<issueManagement>
-		<system>Google code</system>
-		<url>http://code.google.com/p/todomap/issues/list</url>
+		<system>github</system>
+		<url>https://github.com/K0zka/maven-contentgzip-plugin/issues</url>
 	</issueManagement>
 	<scm>
-		<connection>scm:svn:http://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</connection>
-		<developerConnection>scm:svn:https://todomap.googlecode.com/svn/maven-jettygzip-plugin/trunk</developerConnection>
-		<url>http://code.google.com/p/todomap/source/browse/#svn/maven-jettygzip-plugin/trunk</url>
+		<connection>scm:git:https://github.com/K0zka/maven-contentgzip-plugin/issues</connection>
+		<developerConnection>scm:https://github.com/K0zka/maven-contentgzip-plugin/issues</developerConnection>
+		<url>https://github.com/K0zka/maven-contentgzip-plugin/issues</url>
 	</scm>
 	<build>
 		<extensions>
@@ -63,10 +63,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
+				<version>3.2</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>

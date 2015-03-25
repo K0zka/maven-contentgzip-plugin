@@ -1,4 +1,4 @@
-package org.todomap.tools.jettygzip;
+package com.github.k0zka.contentcompress;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +7,8 @@ import org.apache.commons.io.FileDeleteStrategy;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.github.k0zka.contentcompress.JettyGzipMojo;
 
 public class JettyGzipMojoTest {
 

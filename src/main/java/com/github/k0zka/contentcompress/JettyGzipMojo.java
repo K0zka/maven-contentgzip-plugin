@@ -1,4 +1,4 @@
-package org.todomap.tools.jettygzip;
+package com.github.k0zka.contentcompress;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.
