@@ -8,9 +8,9 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.k0zka.contentcompress.JettyGzipMojo;
+import com.github.k0zka.contentcompress.ContentGzipMojo;
 
-public class JettyGzipMojoTest {
+public class ContentGzipMojoTest {
 
 	File basedir;
 	
@@ -26,7 +26,7 @@ public class JettyGzipMojoTest {
 
 	@Test
 	public void testSeekAndGzip() throws IOException {
-		new JettyGzipMojo().seekAndGzip(basedir);
+		new ContentGzipMojo().seekAndGzip(basedir);
 	}
 	
 }

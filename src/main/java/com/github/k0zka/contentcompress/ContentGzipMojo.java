@@ -40,7 +40,7 @@ import org.apache.maven.plugin.MojoExecutionException;
  * 
  * @phase prepare-package
  */
-public class JettyGzipMojo extends AbstractMojo {
+public class ContentGzipMojo extends AbstractMojo {
 	private final class DotNotFilter implements FileFilter {
 		public boolean accept(File pathname) {
 			return !pathname.getName().startsWith(".");
