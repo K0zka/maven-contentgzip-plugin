@@ -109,6 +109,7 @@ public class ContentGzipMojo extends AbstractMojo {
 		ret.add(".xml");
 		ret.add(".xls");
 		ret.add(".ico");
+		ret.add(".svg");
 		ret.add(".pdf");
 		ret.add(".doc");
 		return ret;
