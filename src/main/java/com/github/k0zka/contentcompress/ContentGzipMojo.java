@@ -49,7 +49,8 @@ public class ContentGzipMojo extends AbstractMojo {
 
 	private final class FilesToGzipFilter implements FilenameFilter {
 		public boolean accept(File dir, String name) {
-			return matchesAny(name) && new File(dir, name).isFile();
+			final File file = new File(dir, name);
+			return matchesAny(name) && file.isFile() && file.length() >= minSize;
 		}
 
 		private boolean matchesAny(final String fileName) {
@@ -86,9 +87,16 @@ public class ContentGzipMojo extends AbstractMojo {
 	 */
 	private File outputDirectory;
 	/**
+	 * File name suffixes to handle with the gzip compression.
 	 * @parameter
 	 */
 	private List<String> extensions = getDefaultExtensions();
+
+	/**
+	 * The minimal size for files to compress.
+	 * @parameter
+	 */
+	private long minSize = 0;
 
 	public void execute() throws MojoExecutionException {
 		getLog().info("Compressing static resources with gzip...");
