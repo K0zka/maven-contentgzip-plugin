@@ -47,22 +47,6 @@ public class ContentGzipMojo extends AbstractMojo {
 		}
 	}
 
-	private final class FilesToGzipFilter implements FilenameFilter {
-		public boolean accept(File dir, String name) {
-			final File file = new File(dir, name);
-			return matchesAny(name) && file.isFile() && file.length() >= minSize;
-		}
-
-		private boolean matchesAny(final String fileName) {
-			for (final String pattern : extensions) {
-				if (fileName.endsWith(pattern)) {
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-
 	private final class SubdirsFilter implements FilenameFilter {
 
 		public boolean accept(final File dir, final String name) {
@@ -73,7 +57,7 @@ public class ContentGzipMojo extends AbstractMojo {
 
 	/**
 	 * Location of the webapp.
-	 *  
+	 * 
 	 * @parameter expression="src/main/webapp"
 	 * @required
 	 */
@@ -82,18 +66,21 @@ public class ContentGzipMojo extends AbstractMojo {
 	/**
 	 * Location of the file.
 	 * 
-	 * @parameter expression="${project.build.directory}/${project.build.finalName}"
+	 * @parameter 
+	 *            expression="${project.build.directory}/${project.build.finalName}"
 	 * @required
 	 */
 	private File outputDirectory;
 	/**
 	 * File name suffixes to handle with the gzip compression.
+	 * 
 	 * @parameter
 	 */
 	private List<String> extensions = getDefaultExtensions();
 
 	/**
 	 * The minimal size for files to compress.
+	 * 
 	 * @parameter
 	 */
 	private long minSize = 0;
@@ -101,12 +88,14 @@ public class ContentGzipMojo extends AbstractMojo {
 	public void execute() throws MojoExecutionException {
 		getLog().info("Compressing static resources with gzip...");
 		try {
-			if(!ObjectUtils.equals(webappDirectory, outputDirectory)) {
-				FileUtils.copyDirectory(webappDirectory, outputDirectory, new DotNotFilter());
+			if (!ObjectUtils.equals(webappDirectory, outputDirectory)) {
+				FileUtils.copyDirectory(webappDirectory, outputDirectory,
+						new DotNotFilter());
 			}
 			seekAndGzip(outputDirectory);
 		} catch (IOException e) {
-			throw new MojoExecutionException("IO exception when gzipping files", e);
+			throw new MojoExecutionException(
+					"IO exception when gzipping files", e);
 		}
 	}
 
@@ -126,7 +115,8 @@ public class ContentGzipMojo extends AbstractMojo {
 	}
 
 	void seekAndGzip(File directory) throws IOException {
-		final String[] fileNames = directory.list(new FilesToGzipFilter());
+		final String[] fileNames = directory.list(new FilesToGzipFilter(
+				minSize, extensions));
 		if (fileNames == null) {
 			getLog().error(
 					"Directory does not exist: " + directory.getAbsolutePath());
