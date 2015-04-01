@@ -17,10 +17,8 @@ package com.github.k0zka.contentcompress;
  */
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,20 +39,6 @@ import org.apache.maven.plugin.MojoExecutionException;
  * @phase prepare-package
  */
 public class ContentGzipMojo extends AbstractMojo {
-	private final class DotNotFilter implements FileFilter {
-		public boolean accept(File pathname) {
-			return !pathname.getName().startsWith(".");
-		}
-	}
-
-	private final class SubdirsFilter implements FilenameFilter {
-
-		public boolean accept(final File dir, final String name) {
-			return new File(dir, name).isDirectory() && !"WEB-INF".equals(name);
-		}
-
-	}
-
 	/**
 	 * Location of the webapp.
 	 * 

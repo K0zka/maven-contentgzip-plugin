@@ -6,7 +6,7 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class FilesToGzipFilterTest {
+public class FilesToGzipFilterTest extends AbstractFilterTest {
 	
 	@Test
 	public void matchesAny() {
