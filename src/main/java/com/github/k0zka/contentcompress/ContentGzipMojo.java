@@ -130,11 +130,20 @@ public class ContentGzipMojo extends AbstractMojo {
 		IOUtils.closeQuietly(inputStream);
 		IOUtils.closeQuietly(gzipStream);
 		IOUtils.closeQuietly(fileStream);
-		getLog().info(
-				"Compressed file " + sourceFile.getName() + ". "
-						+ sourceFile.length() + " -> "
-						+ gzippedFile.length());
-
+		final long sourceLength = sourceFile.length();
+		final long gzipedLength = gzippedFile.length();
+		if(sourceLength > gzipedLength) {
+			getLog().info(
+					"Compressed file " + sourceFile.getName() + ". "
+							+ sourceLength + " -> "
+							+ gzipedLength);
+		} else {
+			getLog().info(
+					"Compressed file " + sourceFile.getName() + ". "
+							+ sourceLength + " -> "
+							+ gzipedLength + " removing, gzipped version is bigger");
+			gzippedFile.delete();
+		}
 	}
 
 }
