@@ -117,11 +117,12 @@ public class ContentGzipMojo extends AbstractMojo {
 	}
 
 	void compress(final File directory, final String fileName) throws IOException {
+		final File sourceFile = new File(directory, fileName);
 		final File gzippedFile = new File(directory, fileName.concat(".gz"));
-		if (gzippedFile.exists()) {
+		if (gzippedFile.exists() && gzippedFile.lastModified() > sourceFile.lastModified()) {
+			getLog().info("Skipped file " + sourceFile.getName() +" .gz is up to date");
 			return;
 		}
-		final File sourceFile = new File(directory, fileName);
 		final FileInputStream inputStream = new FileInputStream(sourceFile);
 		final FileOutputStream fileStream = new FileOutputStream(
 				gzippedFile);
