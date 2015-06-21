@@ -99,7 +99,7 @@ public class ContentGzipMojo extends AbstractMojo {
 		return ret;
 	}
 
-	void seekAndGzip(File directory) throws IOException {
+	void seekAndGzip(final File directory) throws IOException {
 		final String[] fileNames = directory.list(new FilesToGzipFilter(
 				minSize, extensions));
 		if (fileNames == null) {
@@ -108,28 +108,33 @@ public class ContentGzipMojo extends AbstractMojo {
 			return;
 		}
 		for (final String fileName : fileNames) {
-			final File gzippedFile = new File(directory, fileName.concat(".gz"));
-			if (gzippedFile.exists()) {
-				continue;
-			}
-			final File sourceFile = new File(directory, fileName);
-			final FileInputStream inputStream = new FileInputStream(sourceFile);
-			final FileOutputStream fileStream = new FileOutputStream(
-					gzippedFile);
-			final GZIPOutputStream gzipStream = new GZIPOutputStream(fileStream);
-			IOUtils.copy(inputStream, gzipStream);
-			IOUtils.closeQuietly(inputStream);
-			IOUtils.closeQuietly(gzipStream);
-			IOUtils.closeQuietly(fileStream);
-			getLog().info(
-					"Compressed file " + sourceFile.getName() + ". "
-							+ sourceFile.length() + " -> "
-							+ gzippedFile.length());
+			compress(directory, fileName);
 		}
 		final String[] subDirs = directory.list(new SubdirsFilter());
 		for (final String subDir : subDirs) {
 			seekAndGzip(new File(directory, subDir));
 		}
+	}
+
+	void compress(final File directory, final String fileName) throws IOException {
+		final File gzippedFile = new File(directory, fileName.concat(".gz"));
+		if (gzippedFile.exists()) {
+			return;
+		}
+		final File sourceFile = new File(directory, fileName);
+		final FileInputStream inputStream = new FileInputStream(sourceFile);
+		final FileOutputStream fileStream = new FileOutputStream(
+				gzippedFile);
+		final GZIPOutputStream gzipStream = new GZIPOutputStream(fileStream);
+		IOUtils.copy(inputStream, gzipStream);
+		IOUtils.closeQuietly(inputStream);
+		IOUtils.closeQuietly(gzipStream);
+		IOUtils.closeQuietly(fileStream);
+		getLog().info(
+				"Compressed file " + sourceFile.getName() + ". "
+						+ sourceFile.length() + " -> "
+						+ gzippedFile.length());
+
 	}
 
 }
