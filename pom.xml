@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.K0zka</groupId>
-	<artifactId>maven-contentgzip-plugin</artifactId>
+	<artifactId>contentgzip-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<name>Content Gzip Plugin</name>
+	<name>Content Gzip Maven Plugin</name>
 	<version>0.0.9-SNAPSHOT</version>
 	<licenses>
 		<license>
