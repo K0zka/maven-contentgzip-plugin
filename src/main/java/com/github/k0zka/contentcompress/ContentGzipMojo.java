@@ -16,6 +16,12 @@ package com.github.k0zka.contentcompress;
  * limitations under the License.
  */
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.ObjectUtils;
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,12 +29,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPOutputStream;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
 
 /**
  * This goal creates a gzip-ed file from each file in the webapp that matches
@@ -68,6 +68,13 @@ public class ContentGzipMojo extends AbstractMojo {
 	 * @parameter
 	 */
 	private long minSize = 0;
+
+	/**
+	 * An option to stop the plugin doing the compression recursively on the whole webapp directory.
+	 *
+	 * @parameter
+	 */
+	private boolean recursive = true;
 
 	public void execute() throws MojoExecutionException {
 		getLog().info("Compressing static resources with gzip...");
@@ -110,9 +117,11 @@ public class ContentGzipMojo extends AbstractMojo {
 		for (final String fileName : fileNames) {
 			compress(directory, fileName);
 		}
-		final String[] subDirs = directory.list(new SubdirsFilter());
-		for (final String subDir : subDirs) {
-			seekAndGzip(new File(directory, subDir));
+		if (recursive) {
+			final String[] subDirs = directory.list(new SubdirsFilter());
+			for (final String subDir : subDirs) {
+				seekAndGzip(new File(directory, subDir));
+			}
 		}
 	}
 
