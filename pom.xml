@@ -4,7 +4,7 @@
 	<artifactId>contentgzip-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<name>Content Gzip Maven Plugin</name>
-	<version>0.0.9-SNAPSHOT</version>
+	<version>0.0.9</version>
 	<licenses>
 		<license>
 			<name>ASL-2.0</name>
