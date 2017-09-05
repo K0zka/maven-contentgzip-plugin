@@ -45,7 +45,7 @@ public class ContentGzipMojo extends AbstractMojo {
 	 * @parameter expression="src/main/webapp"
 	 * @required
 	 */
-	private File webappDirectory;
+	File webappDirectory;
 
 	/**
 	 * Location of the file.
@@ -54,13 +54,13 @@ public class ContentGzipMojo extends AbstractMojo {
 	 *            expression="${project.build.directory}/${project.build.finalName}"
 	 * @required
 	 */
-	private File outputDirectory;
+	File outputDirectory;
 	/**
 	 * File name suffixes to handle with the gzip compression.
 	 * 
 	 * @parameter
 	 */
-	private List<String> extensions = getDefaultExtensions();
+	List<String> extensions = getDefaultExtensions();
 
 	/**
 	 * The minimal size for files to compress.
@@ -74,7 +74,7 @@ public class ContentGzipMojo extends AbstractMojo {
 	 *
 	 * @parameter
 	 */
-	private boolean recursive = true;
+	boolean recursive = true;
 
 	public void execute() throws MojoExecutionException {
 		getLog().info("Compressing static resources with gzip...");
@@ -129,7 +129,7 @@ public class ContentGzipMojo extends AbstractMojo {
 		final File sourceFile = new File(directory, fileName);
 		final File gzippedFile = new File(directory, fileName.concat(".gz"));
 		if (gzippedFile.exists() && gzippedFile.lastModified() > sourceFile.lastModified()) {
-			getLog().info("Skipped file " + sourceFile.getName() +" .gz is up to date");
+			getLog().info("Skipped file " + sourceFile.getName() +".gz is up to date");
 			return;
 		}
 		final FileInputStream inputStream = new FileInputStream(sourceFile);

@@ -10,6 +10,9 @@ import org.junit.Test;
 
 import com.github.k0zka.contentcompress.ContentGzipMojo;
 
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
+
 public class ContentGzipMojoTest {
 
 	File basedir;
@@ -27,6 +30,17 @@ public class ContentGzipMojoTest {
 	@Test
 	public void testSeekAndGzip() throws IOException {
 		new ContentGzipMojo().seekAndGzip(basedir);
+		assertTrue(new File(basedir, "skins/default.css.gz").exists());
+		assertTrue(new File(basedir, "index.html.gz").exists());
 	}
-	
+
+	@Test
+	public void testSeekAndGzipNonRecursive() throws IOException {
+		ContentGzipMojo gzipMojo = new ContentGzipMojo();
+		gzipMojo.recursive = false;
+		gzipMojo.seekAndGzip(basedir);
+		assertFalse(new File(basedir, "skins/default.css.gz").exists());
+		assertTrue(new File(basedir, "index.html.gz").exists());
+	}
+
 }
