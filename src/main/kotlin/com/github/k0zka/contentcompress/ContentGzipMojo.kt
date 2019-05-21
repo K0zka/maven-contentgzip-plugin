@@ -17,7 +17,6 @@ package com.github.k0zka.contentcompress
  */
 
 import org.apache.commons.io.FileUtils
-import org.apache.commons.io.IOUtils
 import org.apache.commons.lang.ObjectUtils
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugin.MojoExecutionException
@@ -132,14 +131,11 @@ class ContentGzipMojo : AbstractMojo() {
 			log.info("Skipped file " + sourceFile.name + ".gz is up to date")
 			return
 		}
-		val inputStream = FileInputStream(sourceFile)
-		val fileStream = FileOutputStream(
-				gzippedFile)
-		val gzipStream = GZIPOutputStream(fileStream)
-		IOUtils.copy(inputStream, gzipStream)
-		IOUtils.closeQuietly(inputStream)
-		IOUtils.closeQuietly(gzipStream)
-		IOUtils.closeQuietly(fileStream)
+		FileInputStream(sourceFile).use { inputStream ->
+			GZIPOutputStream(FileOutputStream(gzippedFile)).use { gzipStream ->
+				inputStream.copyTo(gzipStream)
+			}
+		}
 		val sourceLength = sourceFile.length()
 		val gzipedLength = gzippedFile.length()
 		if (sourceLength > gzipedLength) {
