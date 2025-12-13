@@ -41,21 +41,14 @@ import java.util.zip.GZIPOutputStream
 class ContentGzipMojo : AbstractMojo() {
 	/**
 	 * Location of the webapp.
-	 *
-	 * @parameter expression="src/main/webapp"
-	 * @required
 	 */
-	@Parameter
+	@Parameter(defaultValue = "\${project.basedir}/src/main/webapp", required = true)
 	internal var webappDirectory: File? = null
 
 	/**
 	 * Location of the file.
-	 *
-	 * @parameter
-	 * expression="${project.build.directory}/${project.build.finalName}"
-	 * @required
 	 */
-	@Parameter
+	@Parameter(defaultValue = "\${project.build.directory}/\${project.build.finalName}", required = true)
 	internal var outputDirectory: File? = null
 	/**
 	 * File name suffixes to handle with the gzip compression.
@@ -67,16 +60,12 @@ class ContentGzipMojo : AbstractMojo() {
 
 	/**
 	 * The minimal size for files to compress.
-	 *
-	 * @parameter
 	 */
 	@Parameter
 	private val minSize: Long = 0
 
 	/**
 	 * An option to stop the plugin doing the compression recursively on the whole webapp directory.
-	 *
-	 * @parameter
 	 */
 	@Parameter
 	internal var recursive = true
