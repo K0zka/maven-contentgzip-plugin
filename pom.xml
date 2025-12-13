@@ -14,11 +14,11 @@
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
-		<version>7</version>
+		<version>9</version>
 	</parent>
 	<properties>
-		<kotlin.version>1.3.31</kotlin.version>
-		<maven.api.version>3.6.0</maven.api.version>
+		<kotlin.version>2.2.0</kotlin.version>
+		<maven.api.version>3.9.11</maven.api.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.apache.maven.plugin-tools</groupId>
 			<artifactId>maven-plugin-annotations</artifactId>
-			<version>${maven.api.version}</version>
+			<version>3.15.2</version>
 			<optional>true
 			</optional> <!-- annotations are not used at runtime because @Retention(value=CLASS), they are needed only to build the plugin -->
 		</dependency>
@@ -98,8 +98,17 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
-				<version>${maven.api.version}</version>
+				<version>3.15.2</version>
 				<executions>
 					<execution>
 						<id>default-descriptor</id>
@@ -119,7 +128,7 @@
 				<artifactId>kotlin-maven-plugin</artifactId>
 				<version>${kotlin.version}</version>
 				<configuration>
-					<jvmTarget>1.8</jvmTarget>
+					<jvmTarget>11</jvmTarget>
 				</configuration>
 				<executions>
 					<execution>
