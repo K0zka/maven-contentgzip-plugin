@@ -19,7 +19,7 @@ Some of [webjars](http://webjars.org/) also have this enabled and your webjar-pa
                 <plugin>
                         <groupId>com.github.K0zka</groupId>
                         <artifactId>maven-contentgzip-plugin</artifactId>
-                        <version>0.0.7</version>
+                        <version>0.0.10</version>
                         <executions>
                                 <execution>
                                         <phase>prepare-package</phase>
