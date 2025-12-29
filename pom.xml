@@ -84,7 +84,7 @@
 	</issueManagement>
 	<scm>
 		<connection>scm:git:https://github.com/K0zka/maven-contentgzip-plugin</connection>
-		<developerConnection>scm:git:ssh://git@github.com:K0zka/maven-contentgzip-plugin</developerConnection>
+		<developerConnection>scm:git:ssh://git@github.com/K0zka/maven-contentgzip-plugin</developerConnection>
 		<url>https://github.com/K0zka/maven-contentgzip-plugin</url>
 	</scm>
 	<build>
