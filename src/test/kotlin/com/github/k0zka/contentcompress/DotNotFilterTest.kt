@@ -37,10 +37,12 @@ class DotNotFilterTest {
 	@Test
 	fun accept() {
 		Assert.assertThat(
-				"should not accept a .something directory, it is considered a 'hidden' directory on unix-like systems",
-				DotNotFilter().accept(gitDir), CoreMatchers.`is`(false))
+			"should not accept a .something directory, it is considered a 'hidden' directory on unix-like systems",
+			DotNotFilter().accept(gitDir), CoreMatchers.`is`(false)
+		)
 		Assert.assertThat(
-				"should accept directoryes not starting with dot", DotNotFilter().accept(cssDir),
-				CoreMatchers.`is`(true))
+			"should accept directoryes not starting with dot", DotNotFilter().accept(cssDir),
+			CoreMatchers.`is`(true)
+		)
 	}
 }

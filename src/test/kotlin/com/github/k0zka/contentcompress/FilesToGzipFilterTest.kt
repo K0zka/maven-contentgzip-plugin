@@ -12,8 +12,9 @@ class FilesToGzipFilterTest : AbstractFilterTest() {
 	fun matchesAny() {
 		Assert.assertThat(FilesToGzipFilter(0, Arrays.asList(".svg")).matchesAny("kakukk.svg"), CoreMatchers.`is`(true))
 		Assert.assertThat(
-				FilesToGzipFilter(0, Arrays.asList(".txt")).matchesAny("kakukk.svg"),
-				CoreMatchers.`is`(false))
+			FilesToGzipFilter(0, Arrays.asList(".txt")).matchesAny("kakukk.svg"),
+			CoreMatchers.`is`(false)
+		)
 	}
 
 }

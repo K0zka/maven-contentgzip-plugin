@@ -39,17 +39,19 @@ class SubdirsFilterTest : AbstractFilterTest() {
 	@Test
 	fun acceptWebInf() {
 		Assert.assertThat(
-				"WEB-INF directory content should not be compressed",
-				SubdirsFilter().accept(testDir, "WEB-INF"),
-				CoreMatchers.`is`(false))
+			"WEB-INF directory content should not be compressed",
+			SubdirsFilter().accept(testDir, "WEB-INF"),
+			CoreMatchers.`is`(false)
+		)
 	}
 
 	@Test
 	fun acceptOtherDirectory() {
 		Assert.assertThat(
-				"directory content should be accepted",
-				SubdirsFilter().accept(testDir, "css"),
-				CoreMatchers.`is`(true))
+			"directory content should be accepted",
+			SubdirsFilter().accept(testDir, "css"),
+			CoreMatchers.`is`(true)
+		)
 	}
 
 }

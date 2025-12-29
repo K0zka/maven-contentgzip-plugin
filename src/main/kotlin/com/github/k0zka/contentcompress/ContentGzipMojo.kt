@@ -50,6 +50,7 @@ class ContentGzipMojo : AbstractMojo() {
 	 */
 	@Parameter(defaultValue = "\${project.build.directory}/\${project.build.finalName}", required = true)
 	internal var outputDirectory: File? = null
+
 	/**
 	 * File name suffixes to handle with the gzip compression.
 	 *
@@ -80,13 +81,15 @@ class ContentGzipMojo : AbstractMojo() {
 		try {
 			if (!ObjectUtils.equals(webappDirectory, outputDirectory)) {
 				FileUtils.copyDirectory(
-						webappDirectory!!, outputDirectory!!,
-						DotNotFilter())
+					webappDirectory!!, outputDirectory!!,
+					DotNotFilter()
+				)
 			}
 			seekAndGzip(outputDirectory!!)
 		} catch (e: IOException) {
 			throw MojoExecutionException(
-					"IO exception when gzipping files", e)
+				"IO exception when gzipping files", e
+			)
 		}
 
 	}
@@ -94,11 +97,14 @@ class ContentGzipMojo : AbstractMojo() {
 	@Throws(IOException::class)
 	internal fun seekAndGzip(directory: File) {
 		val fileNames = directory.list(
-				FilesToGzipFilter(
-						minSize, extensions))
+			FilesToGzipFilter(
+				minSize, extensions
+			)
+		)
 		if (fileNames == null) {
 			log.error(
-					"Directory does not exist: " + directory.absolutePath)
+				"Directory does not exist: " + directory.absolutePath
+			)
 			return
 		}
 		for (fileName in fileNames) {
@@ -129,14 +135,16 @@ class ContentGzipMojo : AbstractMojo() {
 		val gzipedLength = gzippedFile.length()
 		if (sourceLength > gzipedLength) {
 			log.info(
-					"Compressed file " + sourceFile.name + ". "
-							+ sourceLength + " -> "
-							+ gzipedLength)
+				"Compressed file " + sourceFile.name + ". "
+						+ sourceLength + " -> "
+						+ gzipedLength
+			)
 		} else {
 			log.info(
-					"Compressed file " + sourceFile.name + ". "
-							+ sourceLength + " -> "
-							+ gzipedLength + " removing, gzipped version is bigger")
+				"Compressed file " + sourceFile.name + ". "
+						+ sourceLength + " -> "
+						+ gzipedLength + " removing, gzipped version is bigger"
+			)
 			gzippedFile.delete()
 		}
 	}
