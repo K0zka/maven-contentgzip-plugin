@@ -11,13 +11,6 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
 		</license>
 	</licenses>
-<!--	<distributionManagement>-->
-<!--		<repository>-->
-<!--			<id>central</id>-->
-<!--			<name>central</name>-->
-<!--			<url>https://central.sonatype.com/</url>-->
-<!--		</repository>-->
-<!--	</distributionManagement>-->
 	<properties>
 		<kotlin.version>2.2.0</kotlin.version>
 		<maven.api.version>3.9.11</maven.api.version>
