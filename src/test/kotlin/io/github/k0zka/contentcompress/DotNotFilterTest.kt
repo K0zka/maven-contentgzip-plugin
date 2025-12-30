@@ -1,4 +1,4 @@
-package com.github.k0zka.contentcompress
+package io.github.k0zka.contentcompress
 
 import java.io.File
 import java.io.IOException
@@ -11,11 +11,10 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
-class SubdirsFilterTest : AbstractFilterTest() {
+class DotNotFilterTest {
 
 	private lateinit var testDir: File
-	private lateinit var webInfDir: File
-	private lateinit var testFile: File
+	private lateinit var gitDir: File
 	private lateinit var cssDir: File
 
 	@Before
@@ -23,9 +22,8 @@ class SubdirsFilterTest : AbstractFilterTest() {
 	fun setup() {
 		testDir = File("target", "testdir-" + UUID.randomUUID())
 		testDir.mkdirs()
-		webInfDir = File(testDir, "WEB-INF")
-		testFile = File(testDir, "foo.txt")
-		testFile.createNewFile()
+		gitDir = File(testDir, ".git")
+		gitDir.mkdirs()
 		cssDir = File(testDir, "css")
 		cssDir.mkdirs()
 	}
@@ -37,21 +35,14 @@ class SubdirsFilterTest : AbstractFilterTest() {
 	}
 
 	@Test
-	fun acceptWebInf() {
+	fun accept() {
 		Assert.assertThat(
-			"WEB-INF directory content should not be compressed",
-			SubdirsFilter().accept(testDir, "WEB-INF"),
-			CoreMatchers.`is`(false)
+			"should not accept a .something directory, it is considered a 'hidden' directory on unix-like systems",
+			DotNotFilter().accept(gitDir), CoreMatchers.`is`(false)
 		)
-	}
-
-	@Test
-	fun acceptOtherDirectory() {
 		Assert.assertThat(
-			"directory content should be accepted",
-			SubdirsFilter().accept(testDir, "css"),
+			"should accept directoryes not starting with dot", DotNotFilter().accept(cssDir),
 			CoreMatchers.`is`(true)
 		)
 	}
-
 }

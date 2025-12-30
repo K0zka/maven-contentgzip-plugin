@@ -1,4 +1,4 @@
-package com.github.k0zka.contentcompress
+package io.github.k0zka.contentcompress
 
 import java.io.File
 import java.io.FileFilter

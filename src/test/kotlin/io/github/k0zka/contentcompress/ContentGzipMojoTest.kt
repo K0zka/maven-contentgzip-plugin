@@ -1,4 +1,4 @@
-package com.github.k0zka.contentcompress
+package io.github.k0zka.contentcompress
 
 import java.io.File
 import java.io.IOException
@@ -7,8 +7,6 @@ import org.apache.commons.io.FileDeleteStrategy
 import org.apache.commons.io.FileUtils
 import org.junit.Before
 import org.junit.Test
-
-import com.github.k0zka.contentcompress.ContentGzipMojo
 
 import junit.framework.TestCase.assertTrue
 import org.junit.Assert.assertFalse
