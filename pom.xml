@@ -11,6 +11,13 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
 		</license>
 	</licenses>
+	<developers>
+		<developer>
+			<id>me</id>
+			<name>Lazslo Hogyishivjak</name>
+			<url>https://github.com/k0zka</url>
+		</developer>
+	</developers>
 	<properties>
 		<kotlin.version>2.2.0</kotlin.version>
 		<maven.api.version>3.9.11</maven.api.version>
