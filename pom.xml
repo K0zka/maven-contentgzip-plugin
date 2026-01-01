@@ -16,6 +16,8 @@
 			<id>me</id>
 			<name>Lazslo Hogyishivjak</name>
 			<url>https://github.com/k0zka</url>
+			<organization>myself</organization>
+			<organizationUrl>https://github.com/k0zka</organizationUrl>
 		</developer>
 	</developers>
 	<properties>
