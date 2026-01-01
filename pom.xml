@@ -4,7 +4,7 @@
 	<artifactId>contentgzip-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<name>Content Gzip Maven Plugin</name>
-	<version>0.0.13</version>
+	<version>0.0.14-SNAPSHOT</version>
 	<licenses>
 		<license>
 			<name>ASL-2.0</name>
@@ -89,7 +89,7 @@
 		<connection>scm:git:https://github.com/K0zka/maven-contentgzip-plugin</connection>
 		<developerConnection>scm:git:ssh://git@github.com/K0zka/maven-contentgzip-plugin</developerConnection>
 		<url>https://github.com/K0zka/maven-contentgzip-plugin</url>
-    <tag>contentgzip-maven-plugin-0.0.13</tag>
+    <tag>HEAD</tag>
   </scm>
 	<build>
 		<sourceDirectory>src/main/kotlin</sourceDirectory>
