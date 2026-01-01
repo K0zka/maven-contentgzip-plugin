@@ -23,9 +23,9 @@ well.
 <build>
         <plugins>
                 <plugin>
-                        <groupId>com.github.K0zka</groupId>
+                        <groupId>io.github.k0zka</groupId>
                         <artifactId>maven-contentgzip-plugin</artifactId>
-                        <version>0.0.11</version>
+                        <version>0.0.14</version>
                         <executions>
                                 <execution>
                                         <phase>prepare-package</phase>
